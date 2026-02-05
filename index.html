@@ -42,37 +42,56 @@
 
         /* --- MINIMALIST HERO --- */
         .hero-minimal {
-            padding: 120px 8%;
+            padding: 100px 8% 60px;
             max-width: 1000px;
         }
 
         .hero-minimal h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             line-height: 1.2;
             margin-bottom: 40px;
             font-weight: 400;
+            font-style: italic;
         }
 
-        .definition-box {
-            margin-top: 80px;
-            padding-left: 40px;
-            border-left: 2px solid var(--navy);
+        /* --- THE DECONSTRUCTED DEFINITION --- */
+        .definition-grid {
+            padding: 0 8% 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
         }
 
-        .definition-box h2 {
-            font-size: 2.2rem;
+        .def-column {
+            padding-left: 30px;
+            border-left: 1px solid rgba(10, 25, 47, 0.1);
+        }
+
+        .def-word {
+            font-size: 2.5rem;
             margin: 0;
-            opacity: 0.2;
+            color: var(--navy);
+            font-weight: 400;
         }
 
-        .definition-text {
-            font-size: 1.5rem;
+        .def-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--muted);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .def-meaning {
+            font-size: 1.4rem;
             font-style: italic;
             margin-top: 10px;
             color: var(--navy);
+            opacity: 0.8;
         }
 
-        /* --- THE FOUR CATEGORIES (Text-Driven) --- */
+        /* --- THE FOUR CATEGORIES --- */
         .work-list {
             padding: 100px 8%;
             background-color: var(--light-grey);
@@ -86,16 +105,16 @@
             border-bottom: 1px solid #ddd;
             text-decoration: none;
             color: var(--navy);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .work-item:hover {
-            padding-left: 20px;
-            color: var(--muted);
+            padding-left: 30px;
+            background-color: rgba(255,255,255,0.5);
         }
 
         .work-item h3 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin: 0;
             font-weight: 400;
         }
@@ -105,33 +124,21 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 600;
-        }
-
-        /* --- PHILOSOPHY FOOTER --- */
-        .closing-thought {
-            padding: 150px 8%;
-            text-align: left;
-            max-width: 800px;
-        }
-
-        .closing-thought p {
-            font-size: 1.4rem;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            margin-bottom: 40px;
+            color: var(--muted);
         }
 
         footer {
-            padding: 60px 8%;
+            padding: 80px 8%;
             background: var(--navy);
             color: white;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
-        @media (max-width: 768px) {
-            .hero-minimal h1 { font-size: 2.2rem; }
+        @media (max-width: 850px) {
+            .definition-grid { grid-template-columns: 1fr; }
+            .hero-minimal h1 { font-size: 2.8rem; }
             .work-item h3 { font-size: 1.8rem; }
         }
     </style>
@@ -140,16 +147,24 @@
 
     <nav>
         <div class="brand-mark">Narrow Gate</div>
-        <div style="font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px;">EST. 1989</div>
+        <div style="font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px;">LEGACY & DESIGN</div>
     </nav>
 
     <main>
         <section class="hero-minimal">
-            <h1 class="serif">"Enter through the narrow gate... for narrow is the gate and difficult is the way which leads to life."</h1>
-            
-            <div class="definition-box">
-                <h2>Narrow,</h2>
-                <p class="definition-text">adj. [Southern] lō’kē’ - the way we say “Loci” down south: Understated, especially in style and manner.</p>
+            <h1 class="serif">"Enter through the narrow gate..."</h1>
+        </section>
+
+        <section class="definition-grid">
+            <div class="def-column">
+                <span class="def-label">Standard I.</span>
+                <h2 class="def-word serif">Narrow.</h2>
+                <p class="def-meaning">is the gate.</p>
+            </div>
+            <div class="def-column">
+                <span class="def-label">Standard II.</span>
+                <h2 class="def-word serif">Difficult.</h2>
+                <p class="def-meaning">is the way which leads to life.</p>
             </div>
         </section>
 
@@ -171,11 +186,6 @@
                 <span>Centers of Life</span>
             </a>
         </section>
-
-        <section class="closing-thought">
-            <p>"Cities have the capability of providing something for everybody, only because, and only when, they are created by everybody."</p>
-            <span style="letter-spacing: 3px; font-weight: 600; font-size: 0.8rem;">— JANE JACOBS</span>
-        </section>
     </main>
 
     <footer>
@@ -183,11 +193,11 @@
     </footer>
 
     <script>
-        ScrollReveal().reveal('.hero-minimal, .work-item, .closing-thought', { 
-            interval: 150, 
-            distance: '20px', 
+        ScrollReveal().reveal('.hero-minimal, .def-column, .work-item', { 
+            interval: 200, 
+            distance: '30px', 
             origin: 'bottom',
-            duration: 1000 
+            duration: 1200 
         });
     </script>
 </body>
